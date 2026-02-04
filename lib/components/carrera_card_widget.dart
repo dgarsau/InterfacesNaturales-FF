@@ -98,6 +98,11 @@ class _CarreraCardWidgetState extends State<CarreraCardWidget>
                 false;
             if (confirmDialogResponse) {
               await widget.matricular?.call();
+              _model.offsetX = 0.0;
+              safeSetState(() {});
+            } else {
+              _model.offsetX = 0.0;
+              safeSetState(() {});
             }
           } else {
             if (animationsMap['flippableCardOnActionTriggerAnimation'] !=
@@ -110,10 +115,9 @@ class _CarreraCardWidgetState extends State<CarreraCardWidget>
                           .controller
                           .reverse);
             }
+            _model.offsetX = 0.0;
+            safeSetState(() {});
           }
-
-          _model.offsetX = 0.0;
-          safeSetState(() {});
         },
         onHorizontalDragUpdate: (details) async {
           _model.offsetX = _model.offsetX! + details.delta.dx;

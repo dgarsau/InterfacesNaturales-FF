@@ -113,6 +113,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.JSON,
             ),
           ),
+        ),
+        FFRoute(
+          name: LoginCopyWidget.routeName,
+          path: LoginCopyWidget.routePath,
+          builder: (context, params) => LoginCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
