@@ -541,7 +541,7 @@ class _LoginWidgetState extends State<LoginWidget>
                           ),
                           Expanded(
                             child: Text(
-                              'Usa tu correo institucional para acceder',
+                              'Usa tu correo institucional para acceder ',
                               style: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
