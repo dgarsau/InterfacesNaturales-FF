@@ -1,3 +1,8 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
 name: Build and Deploy Android
 
 on:
@@ -6,7 +11,7 @@ on:
       - flutterflow
 
 jobs:
-  build-android:
+  build-and-deploy-android:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +21,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          distribution: temurin
+          distribution: "temurin"
           java-version: "17"
 
       - name: Setup Flutter
@@ -31,14 +36,19 @@ jobs:
       - name: Build APK (release)
         run: flutter build apk --release
 
-      - name: Copy APK to repo root
+      - name: Package APK
         run: |
-          cp build/app/outputs/flutter-apk/app-release.apk ./app-release.apk
+          mkdir -p out
+          cp build/app/outputs/flutter-apk/app-release.apk out/ || true
 
-      - name: Commit APK
+      - name: Deploy Android build
         run: |
+          git clone https://x-access-token:${{ secrets.ACCESS_TOKEN }}@github.com/dgarsau/movil-FlutterFlow mobile-repo
+          rm -rf mobile-repo/*
+          cp out/app-release.apk mobile-repo/ || true
+          cd mobile-repo
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add app-release.apk
-          git commit -m "Update Android APK" || echo "No changes to commit"
+          git add .
+          git commit -m "Deploy Android build"
           git push
