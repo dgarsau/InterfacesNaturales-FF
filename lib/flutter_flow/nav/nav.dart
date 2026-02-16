@@ -34,12 +34,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => LoginWidget(),
+      errorBuilder: (context, state) => OnBoardingWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => LoginWidget(),
+          builder: (context, _) => OnBoardingWidget(),
         ),
         FFRoute(
           name: LoginWidget.routeName,
@@ -118,6 +118,31 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: LoginCopyWidget.routeName,
           path: LoginCopyWidget.routePath,
           builder: (context, params) => LoginCopyWidget(),
+        ),
+        FFRoute(
+          name: OnBoardingWidget.routeName,
+          path: OnBoardingWidget.routePath,
+          builder: (context, params) => OnBoardingWidget(),
+        ),
+        FFRoute(
+          name: HomeAlumnoOBWidget.routeName,
+          path: HomeAlumnoOBWidget.routePath,
+          builder: (context, params) => HomeAlumnoOBWidget(),
+        ),
+        FFRoute(
+          name: DetalleAsignaturaOBWidget.routeName,
+          path: DetalleAsignaturaOBWidget.routePath,
+          builder: (context, params) => DetalleAsignaturaOBWidget(),
+        ),
+        FFRoute(
+          name: AnosCarreraOBWidget.routeName,
+          path: AnosCarreraOBWidget.routePath,
+          builder: (context, params) => AnosCarreraOBWidget(),
+        ),
+        FFRoute(
+          name: AsignaturasOBWidget.routeName,
+          path: AsignaturasOBWidget.routePath,
+          builder: (context, params) => AsignaturasOBWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

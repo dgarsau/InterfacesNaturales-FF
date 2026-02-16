@@ -37,6 +37,7 @@ dependencies:
   flip_card: 0.7.0
   flutter_animate: 4.5.0
   flutter_cache_manager: 3.4.1
+  flutter_svg: 2.1.0
   font_awesome_flutter: 10.7.0
   from_css_color: 2.0.0
   functions_client: 2.4.2
@@ -66,12 +67,14 @@ dependencies:
   sign_in_with_apple: 7.0.1
   sign_in_with_apple_platform_interface: 2.0.0
   sign_in_with_apple_web: 3.0.0
+  smooth_page_indicator: 1.1.0
   sqflite: 2.3.3+1
   sqflite_common: 2.5.4+3
   storage_client: 2.4.0
   supabase: 2.7.0
   supabase_flutter: 2.9.0
   timeago: 3.7.1
+  tutorial_coach_mark: 1.2.11
   url_launcher: 6.3.1
   url_launcher_android: 6.3.16
   url_launcher_ios: 6.3.3

@@ -389,8 +389,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                     FFAppState().usuarioActivo,
                                     r'''$.tipo''',
                                   ).toString())) {
-                                    context
-                                        .pushNamed(HomeAlumnoWidget.routeName);
+                                    if (FFAppState().showWalkthroughs == true) {
+                                      context.pushNamed(
+                                          HomeAlumnoOBWidget.routeName);
+                                    } else {
+                                      context.pushNamed(
+                                          HomeAlumnoWidget.routeName);
+                                    }
                                   } else {
                                     context.pushNamed(
                                         HomeProfesorWidget.routeName);
